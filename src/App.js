@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+// import './App.css'
 
-function App() {
+import { Route, Routes } from 'react-router-dom'
+
+import Header from './Components/Header/Header'
+// import PrivateRoute from './Components/PrivateRoute/PrivateRoute.js'
+
+import Login from './Components/Login/Login'
+import Register from './Components/Register/Register'
+import Profile from './Components/Profile/Profile.js'
+import Home from './Components/Home/Home.js'
+
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <Routes>
+            {/* <PrivateRoute exact path="/" element={<Home />} /> */}
+            {/* <Route>
+                <PrivateRoute component={Home}/>
+            </Route> */}
+            <Route exact path="/profile" element={<Profile />} />
+            <Route exact path="/register" element={<Register />} />
+            <Route exact path="/login" element={<Login />} />
+            <Route exact path="/" element={<Home />} />
+            {/* <Route exact path="/chat" element={<Chat />} /> */}
+      </Routes>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
